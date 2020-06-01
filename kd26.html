@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <style>
+        .boxbg{background-color:bisque;} 
+    </style>
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("tr:even").css("background-color","red");
+                $("tr:odd").css("background-color","blue");
+            });
+
+            // $("tr").click(function(){
+            //     $(this).css("background-color","orange");
+            // })
+            // $("tr").mouseover(function(){
+            //     $(this).css("background-color","pink");
+            // })
+            // $("tr").mouseout(function(){
+            //     $(this).css("background-color","white"); 
+            // })
+
+    //**OR**
+            //  $("tr").on("mouseover mouseout",function(){
+            //     $(this).toggleClass("boxbg")
+            // });
+
+     //**OR**
+            $("tr").on({
+                "click":function(){
+                    $(this).css("background-color","lightblue"); },
+                "mouseover":function(){
+                    $(this).css("background-color","pink");},
+                "mouseout":function(){
+                    $(this).css("background-color","white");}
+            })
+
+            // $("tr").click(function(){
+            //     $(this).unbind("mouseover mouseout")
+            //     $(this).css("background-color","yellow")  
+            // })
+
+            $("tr").click(function(){
+                if($(this).attr("IsThisRowSelectedByAnybody") == undefined ||
+                   $(this).attr("IsThisRowSelectedByAnybody") =="undefined")
+                {
+                    $(this).css("background-color", "lightblue");
+                    $(this).attr("IsThisRowSelectedByAnybody","yes");
+                    $(this).unbind("mouseover mouseout");
+                }
+                else
+                {
+                    $(this).css("background-color","white")
+                    $(this).attr("IsThisRowSelectedByAnybody","undefined");
+                    $(this).bind("mouseover",function(){
+                        $(this).css("background-color","pink");
+                    });
+                    $(this).bind(function(){
+                        $(this).css("background-color","white");
+                    });
+                }
+            });
+
+    // NOt usefull here
+            // $("tr").dblclick(function(){
+            //     $(this).off("mouseover mouseout")
+            // });
+        });
+
+    
+    </script>
+</head>
+
+<body>
+    <input type="button"  id="btn" value="Click Me">
+    <br>
+    <table border="1" style="height: 300px; width: 100%;"  >
+        <tr>
+            <td>1</td>
+            <td>rocket</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>rocket</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>rocket</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>rocket</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>rocket</td>
+            <td>Pune</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CDN link for JQuery  -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="jquery-3.4.1.js"></script>
+
+
+    <!-- User style sheet is add below -->
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="oue-headline">Click item list to replace this text</h1>
+    <button id="our-button">Add new item</button>
+
+    <ul id="our-list">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+        <li>Fifth item</li>
+    </ul>
+
+    <div id="box" class="boxbg">
+        <h2>Text Box</h2>
+        <p>Click item list<span>, First item</span>,to replace this text</p>
+    </div>
+    <br>
+
+    <button>Remove Events</button>
+
+    <script>
+        //In JQery we can write multiple $(document).ready(functo(){ });
+        $(document).ready(function () {
+            $('#box').on('click', function () {
+                $(this).css('background', 'orange')
+            });
+        });
+
+        $(document).ready(function () {
+            $("#box").on("mouseover mouseout", function () {
+                $(this).toggleClass("boxbg")
+            });
+        });
+
+        $(document).ready(function () {
+            // on({Event:function(){},Event:function(){},Event:function(){}}) 
+            $("#box").on
+                ({
+                    "mouseover": function () {
+                        $(this).css("background", "pink");
+                        console.log("mouseover");
+                    },
+                    "mouseout": function () {
+                        $(this).css("background", "lightblue");
+                        console.log("mouseout");
+
+                    },
+                    //solve below problem latter
+                    "click": function () {
+                        if ($(this).attr("SRow") == undefined || $(this).attr("SRow") == "undefined") {
+                            $(this).css("background", "orange");
+                            $(this).unbind("mouseover mouseout");
+                            $(this).attr("SRow", "defined");
+                            console.log("truepart,defined.unbined-mouseover mouseout")
+
+                        }
+                        else {
+                            $(this).css("background", "white");
+                            $(this).attr("SRow", "undefined");
+                            console.log("falsepart,undefined.bined-mouseover mouseout")
+
+                            $("#box").bind("mouseover", function () {
+                                $(this).css("background-color", "pink");
+                                console.log("mouseover");
+
+                            });
+                            $("#box").bind("mouseout", function () {
+                                $(this).css("background-color", "lightblue");
+                                console.log("mouseout");
+
+                            });
+                        }
+                    }
+
+                });
+
+            $("button").click(function () {
+                 $("#box").off("mouseover mouseout")
+
+            });
+        });
+
+    </script>
+
+
+    <script src="demo4.js"></script>
+</body>
+
+</html>

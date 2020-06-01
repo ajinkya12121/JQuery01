@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        .a {
+            height: 200px;
+            width: 200px;
+            background-color: lightseagreen;
+            border: 2px double blueviolet;
+            margin: 25px;
+            text-align: center;
+        }
+
+        .b {
+            height: 200px;
+            width: 200px;
+            background-color: lightcoral;
+            border: 2px double purple;
+            margin: 25px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                //     $("div").css("background-color","red");
+
+                // $("div").each(function () {
+                //     alert($(this).html());
+                // });
+
+                // $("div").css("background-color","lightsteelblue");
+                // $("div").css("height","300px");
+                // $("div").css("width","250px");
+
+                // $("div").css({
+                //     "background-color": "lightsteelblue",
+                //     "height": "300px",
+                //     "width": "300px",
+                //     "border-radius": "20px"
+                // });
+
+                // $(".a").css({
+                //     "background-color": "lightsteelblue",
+                //     "height": "300px",
+                //     "width": "300px",
+                //     "border-radius": "20px"
+                // });
+
+                //Here div are shortlisted by first by "Div tag" then by class="a"
+                $("div.a").css({
+                    "background-color": "lightyellow",
+                    "height": "300px",
+                    "width": "300px",
+                    "border-radius": "20px"
+                });
+
+                // we can select multiple of Div  having different classes using "comma / , "
+                // $(".a,.b").css({
+                //     "background-color": "lightyellow",
+                //     "height": "300px",
+                //     "width": "300px",
+                //     "border-radius": "20px"
+                // });
+
+            });
+
+            // $("div").mouseenter(function () {
+            //     $(this).css("background-color", "green");
+            // });
+            // $("div").mouseleave(function () {
+            //     $(this).css("background-color", "red");
+            // });
+
+
+            $("div").click(function () {
+                if ($(this).attr("selectedDiv") == undefined || $(this).attr("selectedDiv") == "undefined") {
+                    $(this).css("background-color", "lightblue");
+                    $(this).attr("selectedDiv", "difine")
+                    $(this).unbind("mouseenter mouseleave")
+                }
+                else
+                {
+                    $(this).attr("selectedDiv", "undefined")
+                    $(this).css("background-color", "lightyellow")
+
+                    $("div").mouseenter(function () {
+                        $(this).css("background-color", "green");
+                    });
+                    $("div").mouseleave(function () {
+                        $(this).css("background-color", "red");
+                    });
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="a">
+        THIS IS DIV1
+    </div>
+    <div class="b">
+        THIS IS DIV2
+    </div>
+    <div class="a">
+        THIS IS DIV3
+    </div>
+    <div class="b">
+        THIS IS DIV3
+    </div>
+
+    <input type="button" value="Click me" id="btn">
+</body>
+
+</html>

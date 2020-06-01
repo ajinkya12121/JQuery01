@@ -1,0 +1,10 @@
+body{ font-family: Arial}
+#box{
+    padding: 10px;
+    border: 1px solid #000;
+    height: 300px;
+    width: 500px;
+}
+.boxbg{
+    background-color:bisque;
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery-Events</title>
+    <style>
+        #box {
+            padding: 10px;
+            border: 1px solid #000;
+            height: 300px;
+            width: 500px;
+            background-color: darkkhaki;
+            overflow: auto;
+
+        }
+
+        .boxbg {
+            background-color: lightblue;
+        }
+    </style>
+    <!-- Imp to add below extenstion  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="box" style="width: 300px; margin-left: 30%;">
+        <h2 style="text-align: center;">Text Box</h2>
+        <p>
+            Click item list<span>, First item</span>,to replace this text
+            When we take the time to examine the beauty of the world around us,
+            we are able to see parallels within our own lives. One who in tune
+            with nature is in tune with the practice of living. Nature moves in
+            a spiral as do our personal lives. It is important to spend time in
+            nature because in this way we can become aware of its wisdom. If we
+            ignore the beauty of nature and spend all our time in an urban jungle,
+            our stress levels go up and we begin to feel as if we are made out
+            of the concrete that we see all around us.
+        </p>
+    </div>
+    <br>
+    <button id="css" style="margin-left: 30%;">Css Property changer</button>
+    <br>
+    <br>
+    <p style="color: blueviolet ;width: 300px; margin-left: 30%;">
+        When we take the time to examine the beauty of the world around us,
+        we are able to see parallels within our own lives. One who in tune
+        with nature is in tune with the practice of living. Nature moves in
+        a spiral as do our personal lives. It is important to spend time in
+        nature because in this way we can become aware of its wisdom. If we
+        ignore the beauty of nature and spend all our time in an urban jungle,
+        our stress levels go up and we begin to feel as if we are made out
+        of the concrete that we see all around us.
+        When we take the time to examine the beauty of the world around us,
+        we are able to see parallels within our own lives. One who in tune
+        with nature is in tune with the practice of living. Nature moves in
+        a spiral as do our personal lives. It is important to spend time in
+        nature because in this way we can become aware of its wisdom. If we
+        ignore the beauty of nature and spend all our time in an urban jungle,
+        our stress levels go up and we begin to feel as if we are made out
+        of the concrete that we see all around us.
+    </p>
+    <br>
+    <button id="btn">Remove Events</button>
+    <br>
+    <br>
+
+    <form action="" id="form">
+        <label for="">Name</label><input type="text" id="sname">
+        <label for="">Class</label><input type="text" id="sclass">
+        <label for="">Country</label>
+        <select name="" id="scountry">
+            <Option>India</Option>
+            <Option>China</Option>
+            <Option>USA</Option>
+            <Option>UAE</Option>
+            <Option>USSR</Option>
+        </select>
+        <br><br>
+        <input type="submit" value="click me">
+    </form>
+
+    <div id="test" style="border: 2px solid red; margin-top: 30px;"></div>
+
+    <script>
+
+        //------------------** Mouse Events **-----------------------------------//
+
+        // $(document).ready(function () {
+        //     $("#box").click(function (xt) {
+        //         $("#box").css("background-color", "lightblue");
+        //     })
+
+        //     $("#box").dblclick(function () {
+        //         $("#box").css("background-color", "pink");
+        //     })
+        //     // $("#box").mouseover(function(){
+        //     //     $("#box").css("background-color","red");
+        //     // })
+        //     //**OR
+        //     $("#box").mouseenter(function () {
+        //         $("#box").css("background-color", "red");
+        //     })
+
+        //     // $("#box").mouseout(function(){
+        //     //     $("#box").css("background","yellow");
+        //     // })
+        //     ////**OR
+        //     $("#box").mouseleave(function () {
+        //         $("#box").css("background", "yellow");
+        //     })
+        // })
+
+        // $(document).ready(function () {
+        //     $("#box").on("mouseover mouseout", function () {
+        //         $(this).toggleClass("boxbg");
+        //     })
+        // })
+
+        //------------------** Mouse Events **-----------------------------------//
+
+
+        //----------------------** On & Off **----------------------------------//
+
+        // $(document).ready(function(){
+        //     $("#box").on({
+        //         "click":function(){
+        //             $(this).css("background-color","lightblue");
+        //         },
+        //         "dblclick":function(){
+        //             $(this).css("background-color","red");
+        //         },
+        //         "mouseover":function (){
+        //             $(this).css("background-color","pink");
+        //         },
+        //         "mouseout":function(){
+        //             $(this).css("background","cornsilk");
+        //         }
+        //     })
+
+        // });
+
+        // $("#btn").click(function () {
+        //     $("#box").off("mouseover mouseout mouseenter mouseleave click");
+        // });
+
+        //-----------------------** On & Off **---------------------------------//
+
+        //-----------------------** Keyboard Events **--------------------------//
+        // $(document).ready(function () {
+        //     $("body").keypress(function () {
+        //         $(this).css("background-color", "red");
+        //     });
+        //     //**OR
+        //     $("body").keyup(function () {
+        //         $(this).css("background-color", "red");
+        //     });
+        //     $("body").keyup(function () {
+        //         $(this).css("background-color", "pink");
+        //     });
+        // });
+        //-----------------------** Keyboard Events **---------------------------------//
+
+        //-----------------------** Form Events **---------------------------------//
+        // $(document).ready(function () {
+        //     $("#sname,#sclass,#scountry").focus(function () {
+        //         $(this).css("background-color", "lightblue")
+        //     });
+        //     $("#sname,#sclass,#scountry").blur(function () {
+        //         $(this).css("background-color", "")
+        //     });
+        //     // $("#scountry").change(function(){
+        //     //     $(this).css("background-color","pink")
+        //     // });
+        //     $("#sname,#sclass,#scountry").change(function () {
+        //         var a = $(this).val();
+        //         $("#test").html(a);
+        //     });
+        //     $("#sname,#sclass").select(function () {
+        //         $(this).css("background-color", "yellow")
+        //     });
+        //     $("#form").submit(function () {
+        //         alert("form submited Successfully");
+        //     });
+
+        // });
+
+        //-----------------------** Form Events **---------------------------------//
+
+        //-----------------------** Window Events **---------------------------------//
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                console.log("You are scrolling");
+            });
+            $(window).resize(function () {
+                console.log("You are resizing Window");
+            });
+        })
+
+       //-----------------------** Window Events **---------------------------------//
+
+       //-----------------------** CSS **---------------------------------//
+
+       
+       $(document).ready(function () {
+           $("#css").click(function(){
+               $("#box").css({
+                              "background-color":"yellow",
+                              "color":"green",
+                              "border":"5px double lightblue"
+                            } )
+           })
+       })
+       //-----------------------** CSS **---------------------------------//
+
+
+
+    </script>
+
+</body>
+
+</html>
